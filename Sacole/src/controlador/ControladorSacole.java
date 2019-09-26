@@ -73,5 +73,17 @@ public class ControladorSacole {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
     }
+
+   public static void excluir(ManutencaoSacole man){
+        Sacole objeto = new Sacole();
+        objeto.setCodigo(Integer.parseInt(man.jtfcodigo.getText())); //só precisa definir a chave primeira
+        
+        boolean resultado = DaoSacole.excluir(objeto);
+        if (resultado) {
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+    }
      
 }

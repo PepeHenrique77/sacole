@@ -87,5 +87,18 @@ public class DaoSacole {
             return false;
         }
     }
+      
+        public static boolean excluir(Sacole objeto) {
+        String sql = "DELETE FROM sacole WHERE codigo=?";
+        try {
+            PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setInt(1, objeto.getCodigo());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
      
 }

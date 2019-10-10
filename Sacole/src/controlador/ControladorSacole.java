@@ -85,5 +85,14 @@ public class ControladorSacole {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
     }
-     
+     public static void atualizaCampos(ManutencaoSacole man, int pk){ 
+        Sacole objeto = DaoSacole.consultar(pk);
+        //Definindo os valores do campo na tela (um para cada atributo/campo)
+        
+        man.jtfNome.setText(objeto.getNome());
+        man.jtfDescricao.setText(objeto.getDescricao());
+        
+        man.jtfCodigo.setEnabled(false); //desabilitando o campo código
+        man.btnAdicionar.setEnabled(false); //desabilitando o botão adicionar
+    }
 }
